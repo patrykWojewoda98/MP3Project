@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controls.mainPaneController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controls.MainPaneController">
    <center>
-      <ImageView fx:id="mainImagineView" disable="true" fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      <ImageView fx:id="mainImagineView" disable="true" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER">
          <image>
             <Image url="@../pictures/550108-Cwieki-nutka-lub-klucz-wiolinowy-kolor-czarny.jpg" />
          </image>
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
-         </cursor></ImageView>
+         </cursor>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></ImageView>
    </center>
    <top>
       <MenuBar fx:id="mainMenuBar" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="AddMiusicMenuItem" mnemonicParsing="false" text="Add miusic to play list" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -39,4 +46,17 @@
         </menus>
       </MenuBar>
    </top>
+
+    <bottom>
+        <VBox alignment="CENTER">
+            <ProgressBar prefWidth="10000.0" />
+            <fx:include fx:id="controlsPane" prefWidth="2000.0" source="controlsPane.fxml" />
+        </VBox>
+    </bottom>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+   <right>
+      <ListView fx:id="playListListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>

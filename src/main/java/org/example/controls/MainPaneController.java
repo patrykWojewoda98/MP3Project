@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuBar;
 import javafx.scene.image.ImageView;
 
-public class mainPaneController {
+public class MainPaneController {
 
     @FXML
     private ImageView mainImagineView;
