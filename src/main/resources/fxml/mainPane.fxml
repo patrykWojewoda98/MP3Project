@@ -31,6 +31,7 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem fx:id="AddMiusicMenuItem" mnemonicParsing="false" text="Add miusic to play list" />
+                  <MenuItem fx:id="RefreshListButton" mnemonicParsing="false" text="Refresh list" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -51,6 +52,7 @@
         <VBox alignment="CENTER">
             <ProgressBar prefWidth="10000.0" />
             <fx:include fx:id="controlsPane" prefWidth="2000.0" source="controlsPane.fxml" />
+            <fx:include fx:id="addMiusicPane" source="addMiusicPane.fxml" visible="false" />
         </VBox>
     </bottom>
    <cursor>

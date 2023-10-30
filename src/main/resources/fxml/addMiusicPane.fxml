@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox fx:id="addSongPaneVBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controls.AddMiusicPaneController">
+   <children>
+      <Label alignment="CENTER" text="Title" />
+      <TextField fx:id="titleTextField" />
+      <Label alignment="CENTER" text="Localizacion" />
+      <TextField fx:id="localizacionTextField" />
+      <Button fx:id="addSongButton" alignment="CENTER" mnemonicParsing="false" text="Add Song" />
+   </children>
+</VBox>

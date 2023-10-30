@@ -13,5 +13,15 @@ public class ControlsPaneController {
 
     @FXML
     private Button previusButton;
+    @FXML
+    AddMiusicPaneController addMiusicPaneController;
+
+   public void initialize(){
+       nextButton.setOnAction(actionEvent -> {
+           System.err.println("kliknięto!");
+       });
+
+
+   }
 
 }
