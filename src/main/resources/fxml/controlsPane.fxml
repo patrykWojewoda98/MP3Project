@@ -3,10 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox maxHeight="Infinity" maxWidth="Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controls.ControlsPaneController" alignment="CENTER">
+<HBox alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controls.ControlsPaneController">
    <children>
       <Button fx:id="previusButton" mnemonicParsing="false" text="Previus" />
-      <Button fx:id="playStopButton" mnemonicParsing="false" text="Play/Stop" />
+      <Button fx:id="playButton" mnemonicParsing="false" text="Play" />
+      <Button fx:id="stopButton" mnemonicParsing="false" text="Stop" />
       <Button fx:id="nextButton" mnemonicParsing="false" text="Next" />
    </children>
 </HBox>
