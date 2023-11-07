@@ -8,7 +8,7 @@ import javazoom.jl.player.Player;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.TreeSet;
+import java.util.Iterator;
 
 public class ControlsPaneController extends AddMiusicPaneController {
 
@@ -19,35 +19,55 @@ public class ControlsPaneController extends AddMiusicPaneController {
     private Button playButton;
 
     @FXML
-    private Button previusButton;
+    private Button jumpToBeginingOfPlayList;
 
     @FXML
     private Button stopButton;
 
 
-    private TreeSet<Miusic> myMiusic;
     private Miusic currentMiusic;
     private Thread playerThread;
+    private Player player = null;
+    Iterator<Miusic> miusicIterator;
+
 
     public void initialize() {
+
         nextButton.setOnAction(actionEvent -> {
-            System.err.println("kliknięto!");
+            if (miusicIterator==null){
+                miusicIterator = myPlayList.getMiusicIterator();
+            }
+            if(miusicIterator.hasNext()) {
+                currentMiusic = miusicIterator.next();
+                System.out.println(currentMiusic);
+            }else {
+                System.out.println("Nie ma już następnego elemętu");
+            }
         });
 
+        jumpToBeginingOfPlayList.setOnAction(actionEvent -> {
+            miusicIterator=myPlayList.getMiusicIterator();
+            System.out.println("Przeskoczono do początu playlisty");
+
+        });
+
+
+
         playButton.setOnAction(actionEvent -> {
-            myMiusic = myPlayList.getPlayList();
-            currentMiusic = myMiusic.first();
-            File myMiusicFile = new File(currentMiusic.getLocalization());
 
             playerThread = new Thread(() -> {
-                Player player = null;
                 try {
+                    File myMiusicFile = new File(currentMiusic.getLocalization());
                     player = new Player(new FileInputStream(myMiusicFile));
                     player.play();
                 } catch (JavaLayerException | FileNotFoundException e) {
                     System.err.println("Wystąpił błąd podczas odtwarzania pliku mp3.");
                     e.printStackTrace();
-                } finally {
+                }catch (NullPointerException e){
+                    System.err.println("Nie wybrałeś żadnego utworu z listy.");
+                    System.err.println("Najpierw dodaj utwór do listy a następnie kliknij przycisk Next");
+                }
+                finally {
                     if (player != null) {
                         player.close();
                     }
@@ -57,7 +77,7 @@ public class ControlsPaneController extends AddMiusicPaneController {
         });
 
         stopButton.setOnAction(actionEvent -> {
-            //trzeba wymyślić jak zatrzymać odtwarzanie muzyki
+            player.close();
         });
     }
 }

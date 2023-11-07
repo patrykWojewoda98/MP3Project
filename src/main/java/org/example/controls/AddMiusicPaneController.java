@@ -20,6 +20,7 @@ public class AddMiusicPaneController {
     @FXML
     private TextField titleTextField;
 
+    private PlayList playList;
 
 
     public static PlayList myPlayList = new PlayList();
@@ -28,8 +29,11 @@ public class AddMiusicPaneController {
         return myPlayList;
     }
 
+
+
     public void initialize() {
     addSongButton.setOnAction(actionEvent -> {
+
 
         myPlayList.addMiusicToPlayList(titleTextField.getText(),localizacionTextField.getText());
         titleTextField.setText("");

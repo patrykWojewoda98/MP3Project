@@ -5,7 +5,7 @@
 
 <HBox alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controls.ControlsPaneController">
    <children>
-      <Button fx:id="previusButton" mnemonicParsing="false" text="Previus" />
+      <Button fx:id="jumpToBeginingOfPlayList" mnemonicParsing="false" text="Jump To Begining Of Playlist" />
       <Button fx:id="playButton" mnemonicParsing="false" text="Play" />
       <Button fx:id="stopButton" mnemonicParsing="false" text="Stop" />
       <Button fx:id="nextButton" mnemonicParsing="false" text="Next" />
